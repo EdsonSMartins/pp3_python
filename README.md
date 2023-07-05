@@ -5,6 +5,7 @@
 * [**User Experience UX**](#user-experience-ux)
     * [**User Stories**](#user-stories)
     * [**Site Owner Goals**](#site-owner-goals)
+* [**Program Logic Plan**](#user-experience-ux)
 
 
 ## **Scope**
@@ -30,10 +31,13 @@ It offers an interactive and immersive experience where user is able to choose d
    - I want to be able to choose the game difficulty by myself.
 
 
-
-     
+    
 
 [Back to contents](#contents)
 
+## **Program Logic Plan**  
 
+### **Flow Chart**
+
+![Flowchart](/documentation/images/hangman_flowchart.PNG)
 
