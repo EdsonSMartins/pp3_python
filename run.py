@@ -22,6 +22,23 @@ SHEET = GSPREAD_CLIENT.open('hangman_words')
 ALPHABET = ['abcdefghijklmnopqrstuvwxyz']
 
 
+def check_input(x):
+    """
+    Checks the type of input and returns data based on that
+    """
+    if len(x) == 1:
+        try:
+            int(x)
+            return 1
+        except ValueError:
+            is_alpha = x.isalpha()
+            if is_alpha is True:
+                return 2
+            else:
+                return 3
+    else:
+        return 3
+
 def start_game():
      """
     Checks if the user enters an interger, else raises an error
@@ -42,17 +59,15 @@ def start_game():
         if number == 2:
             print('Displaying rules...')
             return 2
-        if number == 3:
-            print('Displaying leaderboard...')
-            return 3
-        if number == 4:
+        if number == 3:                
             print('Exiting Game...')
             exit()
         else:
-            print('Please only enter 1, 2, 3, or 4')
+            print('Please only enter 1, 2 or 3')
     else:
         print('Please enter a number')
         main()
+
 
 def main():
     """
