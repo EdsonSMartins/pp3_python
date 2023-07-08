@@ -111,6 +111,69 @@ def show_rules():
         show_rules()
 
 
+def select_level():
+    """
+    Define level of difficulty from begginer to expert
+    also get a word from rescpective column
+    """
+    print(LOGO)
+    print('Select your level\n 1. Begginer 2. Intermediate 3. Expert')
+    mode = input('')
+    if check_input(mode) == 1:
+        mode = int(mode)
+        if mode == 1:
+            print('Begginer mode loading...')
+            return 1
+        elif mode == 2:
+            print('Intermediate mode loading...')
+            return 2
+        elif mode == 3:
+            print('Expert mode loading...')
+            return 3
+        else:
+            print('Please select a level: ')
+    else:
+        print(f'Error: input {mode} is invalid')
+        print('Please enter a valid number')
+        select_level()
+
+
+# Word selection
+begginer_words = WORDS.col_values(1)
+intermediate_words = WORDS.col_values(2)
+expert_words = WORDS.col_values(3)
+
+
+def select_word(level):
+    """
+    Game's word is defined by taken the value of 'select_level'
+    """
+    choice = random.randrange(25)
+    if level == 1:
+        hiden_word = begginer_words[choice]
+    elif level == 2:
+        hiden_word = intermediate_words[choice]
+    elif level == 3:
+        hiden_word = expert_words[choice]
+    return hiden_word
+
+
+def show_word(hiden_word):
+    """
+    
+    """
+    letters = []
+    to_test = [] 
+    
+    for letter in range(len(hiden_word)):
+        letters.append(hiden_word[letter])
+    for letter in letters:
+        to_test.append('_')
+    print(stages[6])
+    print(to_test)
+    hangman(letters, to_test)
+
+
 def main():
     """
     main function calls
@@ -119,7 +182,7 @@ def main():
     if run_game == 1:
         pass
     elif run_game == 2:
-        pass
+        show_rules()
     elif run_game == 3:
         pass
 
