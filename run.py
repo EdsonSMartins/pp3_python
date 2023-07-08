@@ -160,11 +160,11 @@ def select_word(level):
 
 def show_word(hiden_word):
     """
-    
+   
     """
     letters = []
-    to_test = [] 
-    
+    to_test = []
+   
     for letter in range(len(hiden_word)):
         letters.append(hiden_word[letter])
     for letter in letters:
