@@ -4,7 +4,6 @@ from google.oauth2.service_account import Credentials
 from hangman_art import stages
 from hangman_art import LOGO
 
-
 GAME_NAME = "HANGMAN"
 DEFAULT_NAME = "ANONIMUS"
 ALPHABET = ['abcdefghijklmnopqrstuvwxyz']
