@@ -45,7 +45,7 @@ def start_game():
     """
     print(LOGO)
     print('''
-           1. Start game 2. See rules
+           1. Start game 2. How to play
                 3. Exit Game
         ''')
     number = input('')
@@ -56,7 +56,7 @@ def start_game():
             print('Starting game...')
             return 1
         if number == 2:
-            print('Showing rules...')
+            print('Showing How to play...')
             return 2
         if number == 3:                
             print('Exiting Game...')
@@ -70,19 +70,19 @@ def start_game():
 
 def show_rules():
     """
-    The game rules will be displayed once this option is selected 
+    Breif instructions will be displayed once this option is selected 
     """
     print(LOGO)
     print('''
-    This a game of hangman
-    1. On the main menu select "Play Game" by pressing 1
-    2. Select your game mode
-    - Beginner easy, Intermediate or Expert by pressing 1, 2, or 3
-    3. When prompted please enter a letter into the terminal
-    4. The program will then test your answer against the scecret word
-    5. If your answer is correct, it will be displayed in the secret word
-    6. If your answer is incorrect, a line will be added to the hangman
-    7. You only get 6 incorrect guesses - so be careful!''')
+    Welcome to The Hangman game, this is how to play:
+    1. The main goal is to guess the unknown word by guessing letters before the stick figure is hung.
+    2. If too many letters which do not appear in the word are guessed, you lose.
+    3. Be careful, you have only 6 incorrect guesses!
+    4. In this game, you are able to select the level of difficulty and challenge knowledge;
+    5. Once the game starts, You will be presented with a number of blank spaces representing the missing letters you need to find.
+    6. Use the keyboard to guess a letter.
+    7. If your chosen letter exists in the answer, then all places in the answer where that letter appear will be revealed.
+''')
     print('1. Return home 2. End game')
     x = input('')
     if check_input(x) == 1:
