@@ -2,17 +2,7 @@ import random
 import gspread
 from google.oauth2.service_account import Credentials
 from hangman_art import stages
-
-LOGO = '''
- _    _                                         
-| |  | |                                        
-| |__| | __ _ _ __   __ _ _ __ ___   __ _ _ __  
-|  __  |/ _` | '_ \ / _` | '_ ` _ \ / _` | '_ \ 
-| |  | | (_| | | | | (_| | | | | | | (_| | | | |
-|_|  |_|\__,_|_| |_|\__, |_| |_| |_|\__,_|_| |_|
-                     __/ |                      
-                    |___/    
-'''
+from hangman_art import LOGO
 
 
 GAME_NAME = "HANGMAN"
