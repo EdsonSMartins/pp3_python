@@ -1,8 +1,9 @@
 import random
+import os
 import gspread
 from google.oauth2.service_account import Credentials
-from hangman_art import stages
-from hangman_art import LOGO
+from hangman_art import stages, LOGO
+
 
 GAME_NAME = "HANGMAN"
 DEFAULT_NAME = "ANONIMUS"
@@ -75,13 +76,18 @@ def show_rules():
     print(LOGO)
     print('''
     Welcome to The Hangman game, this is how to play:
-    1. The main goal is to guess the unknown word by guessing letters before the stick figure is hung.
-    2. If too many letters which do not appear in the word are guessed, you lose.
+    1. The main goal is to guess the unknown word by guessing letters 
+    before the stick figure is hung.
+    2. If too many letters which do not appear in the word are guessed, 
+    you lose.
     3. Be careful, you have only 6 incorrect guesses!
-    4. In this game, you are able to select the level of difficulty and challenge knowledge;
-    5. Once the game starts, You will be presented with a number of blank spaces representing the missing letters you need to find.
+    4. In this game, you are able to select the level of difficulty and 
+    challenge knowledge;
+    5. Once the game starts, You will be presented with a number of blank 
+    spaces representing the missing letters you need to find.
     6. Use the keyboard to guess a letter.
-    7. If your chosen letter exists in the answer, then all places in the answer where that letter appear will be revealed.
+    7. If your chosen letter exists in the answer, then all places in the 
+    answer where that letter appear will be revealed.
 ''')
     print('1. Return home 2. End game')
     x = input('')
