@@ -58,7 +58,7 @@ def start_game():
     \r           |    Please select one of the following, options:     |
     \r           |                                                     |
     \r           | - Press (1) to Start the Game                       |
-    \r           | - Press (2) to see the How to play the Game         |
+    \r           | - Press (2) to See the how to play the Game         |
     \r           | - Press (3) to Exit Game                            |
     \r           |_____________________________________________________|
            
@@ -98,18 +98,12 @@ def show_rules():
                      
     ''')
     print('''
-    \n       Welcome to The Hangman game, this is how to play:
-    \r       1. The main goal is to guess the secret word by guessing letters 
-    \r       before the stick figure is hung.
-    \r       2. Be careful, you have only 6 incorrect guesses!
-    \r       3. In this game, you are able to select the level of difficulty  
-    \r       and challenge knowledge. 
-    \r       4. Once the game starts, You will be presented with a number of  
-    \r       blank spaces representing the missing letters you need to find. 
-    \r       5. Use the keyboard to guess a letter. 
-    \r       6. If your chosen letter exists in the answer, then all places  
-    \r       in the answer where that letter appear will be revealed.
-''')
+    \r       Welcome to The Hangman game, this is how to play:
+    \n       1. Guess one letter at a time to reveal the secret word.
+    \n       2. Each incorrect guess adds another part to the hangman.
+    \n       3. Chalange your knowledge by selecting the level of difficulty.       
+    \n       4. Be careful, you have only 6 incorrect guesses!
+    ''')
     print('1. Return home 2. End game')
     x = input('')
     if check_input(x) == 1:
@@ -152,17 +146,20 @@ def select_level():
     \r           |_____________________________________________________|
            
     ''')
-    mode = input('')
-    if check_input(mode) == 1:
-        mode = int(mode)
-        if mode == 1:
-            print('Begginer mode loading...')
+    level = input('')
+    if check_input(level) == 1:
+        level = int(level)
+        if level == 1:            
+            print('Begginer level loading...')
+            os.system("clear")
             return 1
-        elif mode == 2:
-            print('Intermediate mode loading...')
+        elif level == 2:
+            print('Intermediate level loading...')
+            os.system("clear")
             return 2
-        elif mode == 3:
-            print('Expert mode loading...')
+        elif level == 3:            
+            print('Expert level loading...')
+            os.system("clear")
             return 3
         else:
             print('Please select a level: ')
