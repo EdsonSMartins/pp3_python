@@ -220,7 +220,7 @@ def hangman(letters, s_word):
         if is_letter == 2:
             user_guess = user_guess.lower()
             if user_guess not in already_guessed:                
-                already_guessed.append(user_guess)                
+                already_guessed.append(user_guess)               
                 # x value is used to iterate through blank list
                 x = 0
                 for letter in letters:
@@ -240,7 +240,7 @@ def hangman(letters, s_word):
                 print('Letter already guessed. Please try again!')
         else:            
             print(f'Error: input {user_guess} is invalid')
-            print(f'Only Eglish alphabet letters are valid, please try again!')            
+            print('Only Eglish alphabet letters are valid, please try again!')            
     end_game(incorrect_guesses, letters)
 
 
