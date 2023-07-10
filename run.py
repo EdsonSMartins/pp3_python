@@ -4,9 +4,6 @@ import gspread
 from google.oauth2.service_account import Credentials
 from hangman_art import stages
 
-
-GAME_NAME = "HANGMAN"
-DEFAULT_NAME = "ANONIMUS"
 ALPHABET = ['abcdefghijklmnopqrstuvwxyz']
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -164,7 +161,7 @@ def select_level():
         else:
             print('Please select a level: ')
     else:
-        print(f'Error: input {mode} is invalid')
+        print(f'Error: input {level} is invalid')
         print('Please enter a valid number')
         select_level()
 
@@ -177,9 +174,9 @@ expert_words = WORDS.col_values(3)
 
 def select_word(level):
     """
-    Game's word is defined by taken the value of 'select_level'
+    Game's words are defined by taken the value of level selected
     """
-    choice = random.randrange(25)
+    choice = random.randrange(30)
     if level == 1:
         hidden_word = begginer_words[choice]
     elif level == 2:
@@ -191,49 +188,51 @@ def select_word(level):
 
 def show_word(hidden_word):
     """
-    display word by level   
+    Get and display word by level, display hangman stages
+    and also display words already guessed    
     """
     letters = []
-    to_test = []
+    l_tested = []
    
     for letter in range(len(hidden_word)):
         letters.append(hidden_word[letter])
     for letter in letters:
-        to_test.append('_')
+        l_tested.append('_')
     print(stages[6])
-    print(to_test)
-    hangman(letters, to_test)
+    print(l_tested)
+    hangman(letters, l_tested)
+    
 
-
-def hangman(letters, to_test):
+def hangman(letters, l_tested):
     """
     Tests user responses against the hidden word
-    Reveals the secret word when guessed
+    reveals the secret word when guessed
 
     """ 
     incorrect_guesses = 7
     already_guessed = []
 
-    while '_' in to_test and incorrect_guesses > 0:
-        user_guess = input('Choose a letter: ') 
+    while '_' in l_tested and incorrect_guesses > 0:
+        user_guess = input('Choose a letter: ')
+        os.system("clear") 
         is_letter = check_input(user_guess)
         print(stages[(incorrect_guesses - 1)])
         correct_guess = 0
         if is_letter == 2:
             user_guess = user_guess.lower()
-            if user_guess not in already_guessed:
-                print(already_guessed)
+            if user_guess not in already_guessed:                
                 already_guessed.append(user_guess)
+                print(already_guessed)
                 # x value is used to iterate through blank list
                 x = 0
                 for letter in letters:
                     if user_guess == letter:
-                        to_test[x] = user_guess
+                        l_tested[x] = user_guess
                         correct_guess += 1
                     x += 1 
-                print(to_test)
+                print(l_tested)
                 if correct_guess > 0:
-                    print('Well done! Correct answer!')
+                    print('Well done! Correct answer!')                    
                 else:
                     incorrect_guesses -= 1
                     print('No good, wrong answer! Please try again')
