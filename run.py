@@ -2,7 +2,7 @@ import random
 import os
 import gspread
 from google.oauth2.service_account import Credentials
-from hangman_art import stages, LOGO
+from hangman_art import stages
 
 
 GAME_NAME = "HANGMAN"
@@ -23,7 +23,7 @@ WORDS = SHEET.worksheet('words')
 
 def check_input(x):
     """
-    Checks the type of input and returns data based on that
+    Function to validate user input and return a valid options
     """
     if len(x) == 1:
         try:
@@ -44,10 +44,24 @@ def start_game():
     Checks if the user enters an interger, else raises an error
     If valid number entered, lets user pick game or rules
     """
-    print(LOGO)
     print('''
-           1. Start game 2. How to play
-                3. Exit Game
+    \n        ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██
+    \r        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
+    \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
+    \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
+    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
+                     
+    ''')
+    print('''
+    \n            ---------------------- MENU ------------------------
+    \r           |                                                     |
+    \r           |    Please select one of the following, options:     |
+    \r           |                                                     |
+    \r           | - Press (1) to Start the Game                       |
+    \r           | - Press (2) to see the How to play the Game         |
+    \r           | - Press (3) to Exit Game                            |
+    \r           |_____________________________________________________|
+           
         ''')
     number = input('')
     interger = check_input(number)
@@ -55,9 +69,11 @@ def start_game():
         number = int(number)
         if number == 1:
             print('Starting game...')
+            os.system("clear")
             return 1
         if number == 2:
             print('Showing How to play...')
+            os.system("clear")
             return 2
         if number == 3:                
             print('Exiting Game...')
@@ -73,27 +89,33 @@ def show_rules():
     """
     Breif instructions will be displayed once this option is selected 
     """
-    print(LOGO)
     print('''
-    Welcome to The Hangman game, this is how to play:
-    1. The main goal is to guess the unknown word by guessing letters 
-    before the stick figure is hung.
-    2. If too many letters which do not appear in the word are guessed, 
-    you lose.
-    3. Be careful, you have only 6 incorrect guesses!
-    4. In this game, you are able to select the level of difficulty and 
-    challenge knowledge;
-    5. Once the game starts, You will be presented with a number of blank 
-    spaces representing the missing letters you need to find.
-    6. Use the keyboard to guess a letter.
-    7. If your chosen letter exists in the answer, then all places in the 
-    answer where that letter appear will be revealed.
+    \n       ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██
+    \r       ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
+    \r       ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
+    \r       ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
+    \r       ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
+                     
+    ''')
+    print('''
+    \n       Welcome to The Hangman game, this is how to play:
+    \r       1. The main goal is to guess the secret word by guessing letters 
+    \r       before the stick figure is hung.
+    \r       2. Be careful, you have only 6 incorrect guesses!
+    \r       3. In this game, you are able to select the level of difficulty  
+    \r       and challenge knowledge. 
+    \r       4. Once the game starts, You will be presented with a number of  
+    \r       blank spaces representing the missing letters you need to find. 
+    \r       5. Use the keyboard to guess a letter. 
+    \r       6. If your chosen letter exists in the answer, then all places  
+    \r       in the answer where that letter appear will be revealed.
 ''')
     print('1. Return home 2. End game')
     x = input('')
     if check_input(x) == 1:
         x = int(x)
         if x == 1:
+            os.system("clear")
             main()
         elif x == 2:
             exit()
@@ -111,8 +133,25 @@ def select_level():
     Define level of difficulty from begginer to expert
     also get a word from rescpective column
     """
-    print(LOGO)
-    print('Select your level\n 1. Begginer 2. Intermediate 3. Expert')
+    print('''
+    \n        ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██
+    \r        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
+    \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
+    \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
+    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
+                     
+    ''')
+    print('''        
+    \n            ---------------------- Level ------------------------
+    \r           |                                                     |
+    \r           |    Please select one of the following, options:     |
+    \r           |                                                     |
+    \r           | - Press (1) for Begginer                            |
+    \r           | - Press (2) for Intermediate                        |
+    \r           | - Press (3) for Expert                              |
+    \r           |_____________________________________________________|
+           
+    ''')
     mode = input('')
     if check_input(mode) == 1:
         mode = int(mode)
@@ -214,7 +253,14 @@ def end_game(incorrect_guesses, letters):
     ends the game and displays the user's score
     """
     score = incorrect_guesses * len(letters)
-    print(LOGO)
+    print('''
+    \n        ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██
+    \r        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
+    \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
+    \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
+    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
+                     
+    ''')
     print('Game Over!!')
     if score > 0:
         print(f'Congratulations!\nYour score is: {score}')
