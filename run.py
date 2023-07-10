@@ -36,8 +36,9 @@ def check_input(x):
         return 3
 
 
-def start_game():
+def pre_game():
     """
+    Display main menu
     Checks if the user enters an interger, else raises an error
     If valid number entered, lets user pick game or rules
     """
@@ -46,13 +47,12 @@ def start_game():
     \r        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
     \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
     \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
-    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
-                     
+    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                    
     ''')
     print('''
-    \n            ---------------------- MENU ------------------------
+    \r            ------------------ MAIN MENU ------------------------
     \r           |                                                     |
-    \r           |    Please select one of the following, options:     |
+    \r           |    Please select one of the following options:      |
     \r           |                                                     |
     \r           | - Press (1) to Start the Game                       |
     \r           | - Press (2) to See the how to play the Game         |
@@ -84,7 +84,7 @@ def start_game():
 
 def show_rules():
     """
-    Breif instructions will be displayed once this option is selected 
+    Brief instructions will be displayed once this option is selected 
     """
     print('''
     \n       ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██
@@ -133,9 +133,9 @@ def select_level():
                      
     ''')
     print('''        
-    \n            ---------------------- Level ------------------------
+    \n            --------------------- Levels ------------------------
     \r           |                                                     |
-    \r           |    Please select one of the following, options:     |
+    \r           |    Please select the level you want to play:        |
     \r           |                                                     |
     \r           | - Press (1) for Begginer                            |
     \r           | - Press (2) for Intermediate                        |
@@ -192,27 +192,26 @@ def show_word(hidden_word):
     and also display words already guessed    
     """
     letters = []
-    l_tested = []
+    s_word = []
    
     for letter in range(len(hidden_word)):
         letters.append(hidden_word[letter])
     for letter in letters:
-        l_tested.append('_')
+        s_word.append('_')
     print(stages[6])
-    print(l_tested)
-    hangman(letters, l_tested)
+    print(s_word)
+    hangman(letters, s_word)
     
 
-def hangman(letters, l_tested):
+def hangman(letters, s_word):
     """
-    Tests user responses against the hidden word
+    Tests user responses against the hidden word,
     reveals the secret word when guessed
-
     """ 
     incorrect_guesses = 7
     already_guessed = []
 
-    while '_' in l_tested and incorrect_guesses > 0:
+    while '_' in s_word and incorrect_guesses > 0:
         user_guess = input('Choose a letter: ')
         os.system("clear") 
         is_letter = check_input(user_guess)
@@ -221,16 +220,16 @@ def hangman(letters, l_tested):
         if is_letter == 2:
             user_guess = user_guess.lower()
             if user_guess not in already_guessed:                
-                already_guessed.append(user_guess)
-                print(already_guessed)
+                already_guessed.append(user_guess)                
                 # x value is used to iterate through blank list
                 x = 0
                 for letter in letters:
                     if user_guess == letter:
-                        l_tested[x] = user_guess
+                        s_word[x] = user_guess
                         correct_guess += 1
                     x += 1 
-                print(l_tested)
+                print(s_word)
+                print(f'Letters you tried: {(already_guessed)}')
                 if correct_guess > 0:
                     print('Well done! Correct answer!')                    
                 else:
@@ -238,9 +237,10 @@ def hangman(letters, l_tested):
                     print('No good, wrong answer! Please try again')
                     print(f'You have: {(incorrect_guesses)} guesses remaining')
             else:
-                print('Letter already guessed\n Please try again!')
-        else:
-            print(f'Error: input {user_guess} is invalid')            
+                print('Letter already guessed. Please try again!')
+        else:            
+            print(f'Error: input {user_guess} is invalid')
+            print(f'Only Eglish alphabet letters are valid, please try again!')            
     end_game(incorrect_guesses, letters)
 
 
@@ -298,7 +298,7 @@ def main():
     """
     main function calls
     """   
-    run_game = start_game()
+    run_game = pre_game()
     if run_game == 1:
         difficulty = select_level()
         hidden_word = select_word(difficulty)
