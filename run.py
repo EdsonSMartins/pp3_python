@@ -130,7 +130,6 @@ def select_level():
     \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
     \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
     \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
-                     
     ''')
     print('''        
     \n            --------------------- Levels ------------------------
@@ -241,6 +240,7 @@ def hangman(letters, s_word):
         else:            
             print(f'Error: input {user_guess} is invalid')
             print('Only Eglish alphabet letters are valid, please try again!')            
+    os.system("clear")
     end_game(incorrect_guesses, letters)
 
 
@@ -249,20 +249,25 @@ def end_game(incorrect_guesses, letters):
     ends the game and displays the user's score
     """
     score = incorrect_guesses * len(letters)
-    print('''
-    \n        ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██
-    \r        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
-    \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
-    \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
-    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
-                     
+    print(''' 
+    
+    \n  ██████   █████  ███    ███ ███████     ██████  ██    ██ ███████ ██████  
+    \r ██       ██   ██ ████  ████ ██         ██    ██ ██    ██ ██      ██   ██ 
+    \r ██   ███ ███████ ██ ████ ██ █████      ██    ██ ██    ██ █████   ██████  
+    \r ██    ██ ██   ██ ██  ██  ██ ██         ██    ██  ██  ██  ██      ██   ██ 
+    \r  ██████  ██   ██ ██      ██ ███████     ██████    ████   ███████ ██   ██ 
+    
     ''')
-    print('Game Over!!')
     if score > 0:
-        print(f'Congratulations!\nYour score is: {score}')
+        print(f'''
+                       Congratulations!
+                      Your score is: {score}
+        ''')
     else:
-        print(f'The word was {letters}')
-        print("Sorry! You were unable to save the man")
+        print(f'''                        
+               Sorry! Unfortunately, you didn't guess the word.
+               The word was {letters}
+        ''')        
     print('Play again? \n Y. Play again N. End Game')
     play_again = input('')
     play_again = play_again.lower()
