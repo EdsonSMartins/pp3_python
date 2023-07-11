@@ -1,5 +1,7 @@
 import random
 import os
+import colorama
+from colorama import Fore
 import gspread
 from google.oauth2.service_account import Credentials
 from hangman_art import stages
@@ -16,6 +18,10 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_words')
 WORDS = SHEET.worksheet('words')
+
+
+# To initialize colorama
+colorama.init(autoreset=True)
 
 
 def check_input(x):
@@ -228,18 +234,20 @@ def hangman(letters, s_word):
                         correct_guess += 1
                     x += 1 
                 print(s_word)
-                print(f'Letters you tried: {(already_guessed)}')
+                print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')
                 if correct_guess > 0:
-                    print('Well done! Correct answer!')                    
+                    print(f'{Fore.GREEN} Well done! Correct answer!')                    
                 else:
                     incorrect_guesses -= 1
-                    print('No good, wrong answer! Please try again')
+                    print(f'{Fore.RED}No good, wrong answer! Please try again')
                     print(f'You have: {(incorrect_guesses)} guesses remaining')
             else:
                 print('Letter already guessed. Please try again!')
+                print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')
         else:            
             print(f'Error: input {user_guess} is invalid')
-            print('Only Eglish alphabet letters are valid, please try again!')            
+            print('Only Eglish alphabet letters are valid, please try again!')
+            print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')            
     os.system("clear")
     end_game(incorrect_guesses, letters)
 
@@ -260,13 +268,13 @@ def end_game(incorrect_guesses, letters):
     ''')
     if score > 0:
         print(f'''
-                       Congratulations!
+                      {Fore.GREEN}Congratulations!{Fore.RESET}
                       Your score is: {score}
         ''')
     else:
         print(f'''                        
-               Sorry! Unfortunately, you didn't guess the word.
-               The word was {letters}
+        {Fore.RED}Sorry! Unfortunately, you didn't guess the word.{Fore.RESET}
+            The word was {letters}
         ''')        
     print('Play again? \n Y. Play again N. End Game')
     play_again = input('')
@@ -275,6 +283,7 @@ def end_game(incorrect_guesses, letters):
     is_valid = check_input(play_again)
     if is_valid == 2:
         if play_again == 'y':
+            os.system("clear")
             main()
         elif play_again == 'n':
             exit_program()
@@ -290,12 +299,13 @@ def exit_program():
     This function closes the program
     """
     confirm = input(
-        "Are you sure you want to exit the program? \n \
-             Press 'y' to confirm or 'n' to play again: ")
+        f"{Fore.YELLOW}Are you sure you want to exit the program? \n \
+             Press 'y' to confirm or 'n' to play again: {Fore.RESET}")
     if confirm.lower() == "y":
         print("Exiting program...")
         exit()
     else:
+        os.system("clear")
         main()
 
 
