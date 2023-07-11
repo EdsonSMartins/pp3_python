@@ -1,5 +1,6 @@
 import random
 import os
+import time
 import colorama
 from colorama import Fore
 import gspread
@@ -53,7 +54,7 @@ def pre_game():
     \r        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
     \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
     \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
-    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                    
+    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████          
     ''')
     print('''
     \r            ------------------ MAIN MENU ------------------------
@@ -97,8 +98,7 @@ def show_rules():
     \r       ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
     \r       ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
     \r       ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
-    \r       ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
-                     
+    \r       ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                      
     ''')
     print('''
     \r       Welcome to The Hangman game, this is how to play:
@@ -312,7 +312,39 @@ def exit_program():
 def main():
     """
     main function calls
-    """   
+    """
+    print(fr''' {Fore.WHITE}
+                              |/|
+                              |/|
+                              |/|    
+                              |/|
+                              |/|
+                              |/|
+                              |/| /¯)
+                              |/|/\/
+                              |/|\/
+                             (¯¯¯)
+                             (¯¯¯)
+                             (¯¯¯)
+                             (¯¯¯)
+                             (¯¯¯)
+                             /¯¯/\
+                            / ,^./\
+                           / /   \/\
+                          / /     \/\
+                         ( (       )/)
+                         | |       |/|
+                         | |       |/|
+                         | |       |/|
+                         ( (       )/)
+                          \ \     / /
+                           \ `---' /
+                            `-----'     {Fore.RESET}   ''')
+    print('\nLoading...')
+    time.sleep(4.5)
+    print('Completed')
+    time.sleep(1)
+    os.system("clear")   
     run_game = pre_game()
     if run_game == 1:
         difficulty = select_level()
