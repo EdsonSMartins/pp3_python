@@ -88,7 +88,7 @@ def pre_game():
             print('Please only enter 1, 2 or 3')
     else:
         print('Please enter a number')
-        pre_game()
+        main()
 
 
 def show_rules():
@@ -139,14 +139,14 @@ def select_level():
     \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
     \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
     ''')
-    print(f'''        
+    print('''        
     \r            --------------------- Levels ------------------------
     \r           |                                                     |
     \r           |    Please select the level you want to play:        |
     \r           |                                                     |
-    \r           |             (1) for {Fore.GREEN}Begginer{Fore.RESET}                        |
-    \r           |             (2) for {Fore.YELLOW}Intermediate{Fore.RESET}                    |
-    \r           |             (3) for {Fore.RED}Expert{Fore.RESET}                          |
+    \r           |             (1) for Begginer                        |
+    \r           |             (2) for Intermediate                    |
+    \r           |             (3) for Expert                          |
     \r           |                                                     |
     \r           |            *Press a number + ENTER                  | 
     \r           |_____________________________________________________|
@@ -156,18 +156,18 @@ def select_level():
     if check_input(level) == 1:
         level = int(level)
         if level == 1:            
-            print('Begginer level loading...')
-            time.sleep(1.1)
+            print(f'{Fore.GREEN}Begginer level loading...{Fore.RESET}')
+            time.sleep(1.2)
             os.system("clear")
             return 1
         elif level == 2:
-            print('Intermediate level loading...')
-            time.sleep(1.1)
+            print(f'{Fore.YELLOW}Intermediate level loading...{Fore.RESET}')
+            time.sleep(1.2)
             os.system("clear")
             return 2
         elif level == 3:            
-            print('Expert level loading...')
-            time.sleep(1.1)
+            print(f'{Fore.RED}Expert level loading...{Fore.RESET}')
+            time.sleep(1.2)
             os.system("clear")
             return 3
         else:
