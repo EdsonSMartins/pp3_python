@@ -284,7 +284,7 @@ def end_game(incorrect_guesses, letters):
     if is_valid == 2:
         if play_again == 'y':
             os.system("clear")
-            main()
+            pre_game()
         elif play_again == 'n':
             exit_program()
         else:
