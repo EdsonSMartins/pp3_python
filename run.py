@@ -313,10 +313,7 @@ def main():
     """
     main function calls
     """
-    print(fr''' {Fore.WHITE}
-                              |/|
-                              |/|
-                              |/|    
+    print(fr''' {Fore.WHITE}                               
                               |/|
                               |/|
                               |/|
@@ -333,15 +330,15 @@ def main():
                            / /   \/\
                           / /     \/\
                          ( (       )/)
-                         | |       |/|
-                         | |       |/|
+                         | |       |/|         Welcome to
+                         | |       |/|          the Hangman Game!
                          | |       |/|
                          ( (       )/)
                           \ \     / /
                            \ `---' /
                             `-----'     {Fore.RESET}   ''')
     print('\nLoading...')
-    time.sleep(4.5)
+    time.sleep(5)
     print('Completed')
     time.sleep(1)
     os.system("clear")   
