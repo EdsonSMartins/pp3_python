@@ -71,24 +71,26 @@ def pre_game():
         ''')
     number = input('')
     interger = check_input(number)
-    if interger == 1:
-        number = int(number)
-        if number == 1:
-            print('Starting game...')
-            os.system("clear")
-            return 1
-        if number == 2:
-            print('Showing How to play...')
-            os.system("clear")
-            return 2
-        if number == 3:                
-            print('Exiting Game...')
-            exit()
+    while True:
+        if interger == 1:
+            number = int(number)
+            if number == 1:
+                print('Starting game...')
+                os.system("clear")
+                return 1
+            if number == 2:
+                print('Showing How to play...')
+                os.system("clear")
+                return 2
+            if number == 3:                
+                print('Exiting Game...')
+                exit()
+            else:
+                print('Please only enter 1, 2 or 3')
+                main()            
         else:
-            print('Please only enter 1, 2 or 3')
-    else:
-        print('Please enter a number')
-        main()
+            print('Please enter a number')
+            main()
 
 
 def show_rules():
@@ -109,13 +111,13 @@ def show_rules():
     \n       # Chalange your knowledge by selecting the level of difficulty.       
     \n       # Be careful, you have only 6 incorrect guesses!
     ''')
-    print('1. Return Menu 2. End Game')
+    print('1. Return home 2. End game')
     x = input('')
     if check_input(x) == 1:
         x = int(x)
         if x == 1:
             os.system("clear")
-            pre_game()
+            main()
         elif x == 2:
             exit()
         else:
@@ -291,7 +293,7 @@ def end_game(incorrect_guesses, letters):
     if is_valid == 2:
         if play_again == 'y':
             os.system("clear")
-            pre_game()
+            main()
         elif play_again == 'n':
             exit_program()
         else:
@@ -313,7 +315,7 @@ def exit_program():
         exit()
     else:
         os.system("clear")
-        pre_game()
+        main()
 
 
 def main():
@@ -337,8 +339,8 @@ def main():
                            / /   \/\
                           / /     \/\
                          ( (       )/)
-                         | |       |/|         Welcome to
-                         | |       |/|          the Hangman Game!
+                         | |       |/|         
+                         | |       |/|          The Hangman Game!
                          | |       |/|
                          ( (       )/)
                           \ \     / /
