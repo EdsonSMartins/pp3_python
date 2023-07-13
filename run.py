@@ -61,9 +61,11 @@ def pre_game():
     \r           |                                                     |
     \r           |    Please select one of the following options:      |
     \r           |                                                     |
-    \r           | - Press (1) to Start the Game                       |
-    \r           | - Press (2) to See the how to play the Game         |
-    \r           | - Press (3) to Exit Game                            |
+    \r           |         (1) to Start the Game                       |
+    \r           |         (2) to See the how to play the Game         |
+    \r           |         (3) to Exit Game                            |
+    \r           |                                                     |
+    \r           |            *Press a number + ENTER                  | 
     \r           |_____________________________________________________|
            
         ''')
@@ -102,18 +104,18 @@ def show_rules():
     ''')
     print('''
     \r       Welcome to The Hangman game, this is how to play:
-    \n       1. Guess one letter at a time to reveal the secret word.
-    \n       2. Each incorrect guess adds another part to the hangman.
-    \n       3. Chalange your knowledge by selecting the level of difficulty.       
-    \n       4. Be careful, you have only 6 incorrect guesses!
+    \n       # Guess one letter at a time to reveal the secret word.
+    \n       # Each incorrect guess adds another part to the hangman.
+    \n       # Chalange your knowledge by selecting the level of difficulty.       
+    \n       # Be careful, you have only 6 incorrect guesses!
     ''')
-    print('1. Return home 2. End game')
+    print('1. Return Menu 2. End Game')
     x = input('')
     if check_input(x) == 1:
         x = int(x)
         if x == 1:
             os.system("clear")
-            main()
+            pre_game()
         elif x == 2:
             exit()
         else:
@@ -137,14 +139,16 @@ def select_level():
     \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
     \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
     ''')
-    print('''        
-    \n            --------------------- Levels ------------------------
+    print(f'''        
+    \r            --------------------- Levels ------------------------
     \r           |                                                     |
     \r           |    Please select the level you want to play:        |
     \r           |                                                     |
-    \r           | - Press (1) for Begginer                            |
-    \r           | - Press (2) for Intermediate                        |
-    \r           | - Press (3) for Expert                              |
+    \r           |             (1) for {Fore.GREEN}Begginer{Fore.RESET}                        |
+    \r           |             (2) for {Fore.YELLOW}Intermediate{Fore.RESET}                    |
+    \r           |             (3) for {Fore.RED}Expert{Fore.RESET}                          |
+    \r           |                                                     |
+    \r           |            *Press a number + ENTER                  | 
     \r           |_____________________________________________________|
            
     ''')
