@@ -153,14 +153,17 @@ def select_level():
         level = int(level)
         if level == 1:            
             print('Begginer level loading...')
+            time.sleep(1.3)
             os.system("clear")
             return 1
         elif level == 2:
             print('Intermediate level loading...')
+            time.sleep(1.3)
             os.system("clear")
             return 2
         elif level == 3:            
             print('Expert level loading...')
+            time.sleep(1.3)
             os.system("clear")
             return 3
         else:
@@ -306,7 +309,7 @@ def exit_program():
         exit()
     else:
         os.system("clear")
-        main()
+        pre_game()
 
 
 def main():
