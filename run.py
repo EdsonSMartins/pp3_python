@@ -88,7 +88,7 @@ def pre_game():
             print('Please only enter 1, 2 or 3')
     else:
         print('Please enter a number')
-        main()
+        pre_game()
 
 
 def show_rules():
@@ -157,17 +157,17 @@ def select_level():
         level = int(level)
         if level == 1:            
             print('Begginer level loading...')
-            time.sleep(1.3)
+            time.sleep(1.1)
             os.system("clear")
             return 1
         elif level == 2:
             print('Intermediate level loading...')
-            time.sleep(1.3)
+            time.sleep(1.1)
             os.system("clear")
             return 2
         elif level == 3:            
             print('Expert level loading...')
-            time.sleep(1.3)
+            time.sleep(1.1)
             os.system("clear")
             return 3
         else:
@@ -345,7 +345,7 @@ def main():
                            \ `---' /
                             `-----'     {Fore.RESET}   ''')
     print('\nLoading...')
-    time.sleep(5)
+    time.sleep(3)
     print('Completed')
     time.sleep(1)
     os.system("clear")   
@@ -357,7 +357,7 @@ def main():
     elif run_game == 2:
         show_rules()
     elif run_game == 3:
-        pass
+        exit_program()
 
 
 main()    
