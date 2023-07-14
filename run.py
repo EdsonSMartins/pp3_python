@@ -1,3 +1,6 @@
+'''
+Module with all required imports to this project
+'''
 import random
 import os
 import time
