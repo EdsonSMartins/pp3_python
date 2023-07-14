@@ -25,16 +25,17 @@ WORDS = SHEET.worksheet('words')
 colorama.init(autoreset=True)
 
 
-def check_input(x):
+def check_input(x_x):
     """
     Function to validate user input and return a valid options
+    and alpha validation
     """
-    if len(x) == 1:
+    if len(x_x) == 1:
         try:
-            int(x)
+            int(x_x)
             return 1
         except ValueError:
-            is_alpha = x.isalpha()
+            is_alpha = x_x.isalpha()
             if is_alpha is True:
                 return 2
             else:
@@ -111,19 +112,19 @@ def show_rules():
     \n       # Be careful, you have only 6 incorrect guesses!
     ''')
     print('1. Return home 2. End game')
-    x = input('')
-    if check_input(x) == 1:
-        x = int(x)
-        if x == 1:
+    x_x = input('')
+    if check_input(x_x) == 1:
+        x_x = int(x_x)
+        if x_x == 1:
             os.system("clear")
             main()
-        elif x == 2:
+        elif x_x == 2:
             exit()
         else:
             print('Please only enter 1 or 2')
             show_rules()
     else:
-        print(f'Error: input {x} is invalid')
+        print(f'Error: input {x_x} is invalid')
         print('Please enter a valid number')
         show_rules()
 
@@ -231,18 +232,18 @@ def hangman(letters, s_word):
         if is_letter == 2:
             user_guess = user_guess.lower()
             if user_guess not in already_guessed:
-                already_guessed.append(user_guess)               
+                already_guessed.append(user_guess)
                 # x value is used to iterate through blank list
-                x = 0
+                x_x = 0
                 for letter in letters:
                     if user_guess == letter:
-                        s_word[x] = user_guess
+                        s_word[x_x] = user_guess
                         correct_guess += 1
-                    x += 1 
-                print(s_word)
+                    x_x += 1
+                    print(s_word)
                 print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')
                 if correct_guess > 0:
-                    print(f'{Fore.GREEN} Well done! Correct answer!')                    
+                    print(f'{Fore.GREEN} Well done! Correct answer!')
                 else:
                     incorrect_guesses -= 1
                     print(f'{Fore.RED}No good, wrong answer! Please try again')
@@ -250,10 +251,10 @@ def hangman(letters, s_word):
             else:
                 print('Letter already guessed. Please try again!')
                 print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')
-        else:            
+        else:
             print(f'Error: input {user_guess} is invalid')
             print('Only Eglish alphabet letters are valid, please try again!')
-            print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')            
+            print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')
     os.system("clear")
     end_game(incorrect_guesses, letters)
 
@@ -263,14 +264,12 @@ def end_game(incorrect_guesses, letters):
     ends the game and displays the user's score
     """
     score = incorrect_guesses * len(letters)
-    print(''' 
-    
-    \n  ██████   █████  ███    ███ ███████     ██████  ██    ██ ███████ ██████  
-    \r ██       ██   ██ ████  ████ ██         ██    ██ ██    ██ ██      ██   ██ 
-    \r ██   ███ ███████ ██ ████ ██ █████      ██    ██ ██    ██ █████   ██████  
-    \r ██    ██ ██   ██ ██  ██  ██ ██         ██    ██  ██  ██  ██      ██   ██ 
-    \r  ██████  ██   ██ ██      ██ ███████     ██████    ████   ███████ ██   ██ 
-    
+    print('''
+    \n  ██████   █████  ███    ███ ███████     ██████  ██    ██ ███████ ██████
+    \r ██       ██   ██ ████  ████ ██         ██    ██ ██    ██ ██      ██   ██
+    \r ██   ███ ███████ ██ ████ ██ █████      ██    ██ ██    ██ █████   ██████
+    \r ██    ██ ██   ██ ██  ██  ██ ██         ██    ██  ██  ██  ██      ██   ██
+    \r  ██████  ██   ██ ██      ██ ███████     ██████    ████   ███████ ██   ██
     ''')
     if score > 0:
         print(f'''
@@ -278,14 +277,14 @@ def end_game(incorrect_guesses, letters):
                       Your score is: {score}
         ''')
     else:
-        print(f'''                        
+        print(f'''
         {Fore.RED}Sorry! Unfortunately, you didn't guess the word.{Fore.RESET}
             The word was {letters}
-        ''')        
+        ''')
     print('Play again? \n Y. Play again N. End Game')
     play_again = input('')
     play_again = play_again.lower()
-    # Input validation 
+    # Input validation
     is_valid = check_input(play_again)
     if is_valid == 2:
         if play_again == 'y':
@@ -319,7 +318,7 @@ def main():
     """
     main function calls
     """
-    print(fr''' {Fore.WHITE}                               
+    print(fr''' {Fore.WHITE}
                               |/|
                               |/|
                               |/|
@@ -336,7 +335,7 @@ def main():
                            / /   \/\
                           / /     \/\
                          ( (       )/)
-                         | |       |/|         
+                         | |       |/|
                          | |       |/|          The Hangman Game!
                          | |       |/|
                          ( (       )/)
@@ -347,7 +346,7 @@ def main():
     time.sleep(3)
     print('Completed')
     time.sleep(1)
-    os.system("clear")   
+    os.system("clear")
     run_game = pre_game()
     if run_game == 1:
         difficulty = select_level()
@@ -359,5 +358,4 @@ def main():
         exit_program()
 
 
-main()    
-
+main()
