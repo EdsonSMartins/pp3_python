@@ -322,31 +322,31 @@ def main():
     main function calls
     """
     print(fr''' {Fore.YELLOW}
-                              |/|
-                              |/|
-                              |/|
-                              |/| /¯)
-                              |/|/\/
-                              |/|\/
-                             (¯¯¯)
-                             (¯¯¯)
-                             (¯¯¯)
-                             (¯¯¯)
-                             (¯¯¯)
-                             /¯¯/\
-                            / ,^./\
-                           / /   \/\
-                          / /     \/\
-                         ( (       )/)
-                         | |       |/|
-                         | |       |/|          The Hangman Game!
-                         | |       |/|
-                         ( (       )/)
-                          \ \     / /
-                           \ `---' /
-                            `-----'     {Fore.RESET}   ''')
+                        |/|
+                        |/|
+                        |/|
+                        |/| /¯)
+                        |/|/\/
+                        |/|\/
+                       (¯¯¯)
+                       (¯¯¯)
+                       (¯¯¯)
+                       (¯¯¯)
+                       (¯¯¯)
+                       /¯¯/\{Fore.WHITE}        The Hangman Game!{Fore.RESET}
+{Fore.YELLOW}                      / ,^./\
+                     / /   \/\
+                    / /     \/\      Test your knoledge,
+                   ( (       )/)    but don't loose your head!
+                   | |       |/|
+                   | |       |/|
+                   | |       |/|
+                   ( (       )/)
+                    \ \     / /
+                     \ `---' /
+                      `-----'     {Fore.RESET}''')
     print('\nLoading...')
-    time.sleep(3)
+    time.sleep(4)
     os.system("clear")
     run_game = pre_game()
     if run_game == 1:
