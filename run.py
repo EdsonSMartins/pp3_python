@@ -10,7 +10,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 from hangman_art import stages
 
-ALPHABET = ['abcdefghijklmnopqrstuvwxyz']
+
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
@@ -243,7 +243,7 @@ def hangman(letters, s_word):
                         s_word[x_x] = user_guess
                         correct_guess += 1
                     x_x += 1
-                    print(s_word)
+                print(s_word)
                 print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')
                 if correct_guess > 0:
                     print(f'{Fore.GREEN} Well done! Correct answer!')
@@ -321,7 +321,7 @@ def main():
     """
     main function calls
     """
-    print(fr''' {Fore.WHITE}
+    print(fr''' {Fore.YELLOW}
                               |/|
                               |/|
                               |/|
@@ -347,8 +347,6 @@ def main():
                             `-----'     {Fore.RESET}   ''')
     print('\nLoading...')
     time.sleep(3)
-    print('Completed')
-    time.sleep(1)
     os.system("clear")
     run_game = pre_game()
     if run_game == 1:
