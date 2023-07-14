@@ -49,6 +49,8 @@ It offers an interactive and immersive experience where user is able to choose d
 
 ![Flowchart](/documentation/images/hangman_flowchart.PNG)
 
+[Back to contents](#contents)
+
 ## **Technologies**  
 
 ## Technologies Used
@@ -71,4 +73,4 @@ It offers an interactive and immersive experience where user is able to choose d
 - [PEP8CI Validator](https://pep8ci.herokuapp.com/#) 
   - Used for error and issues with the code
 
-[Back to top](<#contents>)
+[Back to contents](#contents)
