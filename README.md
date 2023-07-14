@@ -30,7 +30,7 @@ It offers an interactive and immersive experience where user is able to choose d
 ### **User Stories**
 
 - As a First Time User
-    - I want to add my name before starting the game.
+    - I want to easy navigate and interact with the game.
     - I want to find instructions on how to play the game. 
     - I want to get a wide range of random word selection.
     - I want to see a visual feedback when a wrong guess is made.

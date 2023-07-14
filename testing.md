@@ -1,9 +1,8 @@
 # **The Hangman game!**
 
 ## **Contents**
-* [**Testing**](#user-experience-ux)
-    * [**User Stories**](#user-stories)
-    * [**Site Owner Goals**](#site-owner-goals)
+   * [**User Stories Testing**](#User-Stories-Testing)
+   * [**Manual Testing**](#Manual-Testing)
 
 ### ***User Stories Testing***
 
@@ -15,6 +14,12 @@
 |I want to see a visual feedback when a wrong guess is made.| Every time user input a word, if incorrect game will display a feedback sentence in red, otherwise will display a feedback sentence in red. Color is also used to display letters already chosen.|
 
 
+
 |As a user returning to the site| Outcome|
 |---|---|
 |I want to be able to choose the game difficulty by myself.| When user decide to Start the game from the main menu, a level menu is displayed so users can pick their desired level of difficulty.|
+
+
+### ***Manual Testing***
+|Feature| Expected Response | Actual Response| Outcome|
+|---|---|---|---|
