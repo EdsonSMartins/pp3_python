@@ -54,7 +54,7 @@ def pre_game():
     \r        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
     \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
     \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
-    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████          
+    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████
     ''')
     print('''
     \r            ------------------ MAIN MENU ------------------------
@@ -65,10 +65,9 @@ def pre_game():
     \r           |         (2) to See the how to play the Game         |
     \r           |         (3) to Exit Game                            |
     \r           |                                                     |
-    \r           |            *Press a number + ENTER                  | 
+    \r           |            *Press a number + ENTER                  |
     \r           |_____________________________________________________|
-           
-        ''')
+    ''')
     number = input('')
     interger = check_input(number)
     while True:
@@ -82,12 +81,12 @@ def pre_game():
                 print('Showing How to play...')
                 os.system("clear")
                 return 2
-            if number == 3:                
+            if number == 3:
                 print('Exiting Game...')
                 exit()
             else:
                 print('Please only enter 1, 2 or 3')
-                main()            
+                main()
         else:
             print('Please enter a number')
             main()
@@ -95,20 +94,20 @@ def pre_game():
 
 def show_rules():
     """
-    Brief instructions will be displayed once this option is selected 
+    Brief instructions will be displayed once this option is selected
     """
     print('''
     \n       ██   ██  █████  ███    ██  ██████  ███    ███  █████  ███    ██
     \r       ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
     \r       ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
     \r       ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
-    \r       ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                      
+    \r       ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████
     ''')
     print('''
     \r       Welcome to The Hangman game, this is how to play:
     \n       # Guess one letter at a time to reveal the secret word.
     \n       # Each incorrect guess adds another part to the hangman.
-    \n       # Chalange your knowledge by selecting the level of difficulty.       
+    \n       # Chalange your knowledge by selecting the level of difficulty.
     \n       # Be careful, you have only 6 incorrect guesses!
     ''')
     print('1. Return home 2. End game')
@@ -139,9 +138,9 @@ def select_level():
     \r        ██   ██ ██   ██ ████   ██ ██       ████  ████ ██   ██ ████   ██
     \r        ███████ ███████ ██ ██  ██ ██   ███ ██ ████ ██ ███████ ██ ██  ██
     \r        ██   ██ ██   ██ ██  ██ ██ ██    ██ ██  ██  ██ ██   ██ ██  ██ ██
-    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████                     
+    \r        ██   ██ ██   ██ ██   ████  ██████  ██      ██ ██   ██ ██   ████
     ''')
-    print('''        
+    print('''
     \r            --------------------- Levels ------------------------
     \r           |                                                     |
     \r           |    Please select the level you want to play:        |
@@ -150,14 +149,13 @@ def select_level():
     \r           |             (2) for Intermediate                    |
     \r           |             (3) for Expert                          |
     \r           |                                                     |
-    \r           |            *Press a number + ENTER                  | 
+    \r           |            *Press a number + ENTER                  |
     \r           |_____________________________________________________|
-           
     ''')
     level = input('')
     if check_input(level) == 1:
         level = int(level)
-        if level == 1:            
+        if level == 1:
             print(f'{Fore.GREEN}Begginer level loading...{Fore.RESET}')
             time.sleep(1.2)
             os.system("clear")
@@ -167,7 +165,7 @@ def select_level():
             time.sleep(1.2)
             os.system("clear")
             return 2
-        elif level == 3:            
+        elif level == 3:
             print(f'{Fore.RED}Expert level loading...{Fore.RESET}')
             time.sleep(1.2)
             os.system("clear")
@@ -203,11 +201,10 @@ def select_word(level):
 def show_word(hidden_word):
     """
     Get and display word by level, display hangman stages
-    and also display words already guessed    
+    and also display words already guessed
     """
     letters = []
     s_word = []
-   
     for letter in range(len(hidden_word)):
         letters.append(hidden_word[letter])
     for letter in letters:
@@ -215,25 +212,25 @@ def show_word(hidden_word):
     print(stages[6])
     print(s_word)
     hangman(letters, s_word)
-    
+
 
 def hangman(letters, s_word):
     """
     Tests user responses against the hidden word,
     reveals the secret word when guessed
-    """ 
+    """
     incorrect_guesses = 7
     already_guessed = []
 
     while '_' in s_word and incorrect_guesses > 0:
         user_guess = input('Choose a letter: ')
-        os.system("clear") 
+        os.system("clear")
         is_letter = check_input(user_guess)
         print(stages[(incorrect_guesses - 1)])
         correct_guess = 0
         if is_letter == 2:
             user_guess = user_guess.lower()
-            if user_guess not in already_guessed:                
+            if user_guess not in already_guessed:
                 already_guessed.append(user_guess)               
                 # x value is used to iterate through blank list
                 x = 0

@@ -1,5 +1,8 @@
 # **The Hangman game!**
-![](documentation/images/amiresponsive.PNG)
+![Alt text](documentation/images/amiresponsive.PNG)
+
+[View live link](https://p3hangman-9bacfa10b6a1.herokuapp.com/)
+
 ## **Contents**
 * [**Scope**](#scope)  
 * [**User Experience UX**](#user-experience-ux)
@@ -46,3 +49,26 @@ It offers an interactive and immersive experience where user is able to choose d
 
 ![Flowchart](/documentation/images/hangman_flowchart.PNG)
 
+## **Technologies**  
+
+## Technologies Used
+
+- The application was built in Python. This project used the CI python template which already has HTML, CSS and JavaScript developed.
+
+### **Frameworks & Tools**
+- [Git](https://git-scm.com/)
+  - Git was used for version control (commit to Git and push to GitHub).
+- [GitHub](https://github.com/)
+  - Used to store, host and deploy the project files and source code after being pushed from Git.
+- [Gitpod](https://www.gitpod.io/)
+  - An online IDE linked to the GitHub repository used to write my code.
+- [Heroku](https://www.heroku.com/platform) 
+  - Heroku is a cloud plataform which was used for application deployment.
+- [Google sheets](https://www.google.com/sheets/about/) 
+  - Used to store words for the game.
+- [Lucid](https://lucid.co/) 
+  - Used to create game logic/flowchart.
+- [PEP8CI Validator](https://pep8ci.herokuapp.com/#) 
+  - Used for error and issues with the code
+
+[Back to top](<#contents>)
