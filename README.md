@@ -1,4 +1,4 @@
-# **Welcome to The Hangman game!**
+# **The Hangman game!**
 
 ## **Contents**
 * [**Scope**](#scope)  
@@ -6,6 +6,13 @@
     * [**User Stories**](#user-stories)
     * [**Site Owner Goals**](#site-owner-goals)
 * [**Program Logic Plan**](#user-experience-ux)
+* [**Technologies**](#technologies)
+* [**Features**](#features)
+* [**Version Control**](#version-control)    
+* [**Testing**](#testing)
+* [**Deployment**](#deployment)    
+* [**Credits**](#credits)  
+  
 
 
 ## **Scope**
