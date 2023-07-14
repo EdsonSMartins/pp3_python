@@ -1,5 +1,5 @@
 # **The Hangman game!**
-
+![](documentation/images/amiresponsive.PNG)
 ## **Contents**
 * [**Scope**](#scope)  
 * [**User Experience UX**](#user-experience-ux)
@@ -37,8 +37,6 @@ It offers an interactive and immersive experience where user is able to choose d
 -  As a user returning to the site:
    - I want to be able to choose the game difficulty by myself.
 
-
-    
 
 [Back to contents](#contents)
 
