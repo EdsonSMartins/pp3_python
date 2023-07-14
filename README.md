@@ -90,7 +90,7 @@ It offers an interactive and immersive experience where user is able to choose d
 
 ## **Testing**
 
-[The game was tested and validate with PEP8CI with no errors. However the details on testing can be found](testing.md).
+The game was tested and validate with PEP8CI with no errors. However the details on testing can be found [Here!](testing.md).
 
 ![Alt text](documentation/images/pep8civalidator.PNG "PEP8CI Report")
 
