@@ -78,6 +78,51 @@ It offers an interactive and immersive experience where user is able to choose d
 
 ### **Features Implemented**
 
+- Game intro
+    - Greetings and short message to estimulate user to challenge themselves with moderation.
+
+    - ![Game Intro](documentation/images/game_intro.PNG)
+  
+- Main Menu
+    - The main menu gives the user clear options to select and navigate through it.
+
+    - ![Main Menu](documentation/images/main_menu.PNG)
+  
+- How to play
+    - Brief introduction in how to play the the game making user experience more effective in order to use the system.
+
+    - ![How To play](documentation/images/how_to_play.PNG)
+  
+- Level Menu
+    - This page allows the user to pick from three different difficulty levels, each of which accesses a different list of words for the user to guess. Once level selected, terminal will print a coulored message according to the level selected.
+
+    - ![Level Menu](documentation/images/game_level_color.PNG)
+
+- Main Game - Start
+    - This page is where the game loop starts and it display the array for the hidden word and the hangman picture on stage 0.
+
+    - ![Start](documentation/images/game_start.PNG)
+
+- Main Game - Correct answer
+    - once user input a correct letter, this will be added to the hidden word array and also to the letters already guessed. A feedback message will be displayed in green.
+
+    - ![Correct answer](documentation/images/game_correct_answer.PNG)
+
+- Main Game - incorrect answer
+    - once user input a incorrect letter, hangman starts moving stages and this letter will also be added to the letters already guessed. A feedback message will be displayed in red.
+
+    - ![Incorrect answer](documentation/images/game_incorrect_answer.PNG)
+
+- Game Over
+    - Usar may win if reveal hidden word within 7 attemps otherwise will lose. A feedback message will be displayed and user will be able to decide if play again or not. 
+
+    - ![Game Over win](documentation/images/game_over_win.PNG)
+    - ![Game Over fail](documentation/images/game_over_fail.PNG)
+
+### **Future Features**
+- Allow players to add their name
+- leaderboard 
+
 
 ## **Version Control**
 **Version control** was managed within **GitHub** and **Gitpod** and regular commits pushed to **GitHub**. 
@@ -90,9 +135,13 @@ It offers an interactive and immersive experience where user is able to choose d
 
 ## **Testing**
 
-The game was tested and validate with PEP8CI with no errors. However the details on testing can be found [Here!](testing.md).
+The game was tested and validate with PEP8CI with no errors. However the details on testing can be found  [Here!](testing.md).
 
 ![Alt text](documentation/images/pep8civalidator.PNG "PEP8CI Report")
+
+### **Bugs**
+- I had an issue where I wasn't getting the correct words or index errors from the random numbers, I fixed this by using the length of the list for the random number instead of a magic number.
+- I tried using wordAPI at first but game was crashing and this was fixed bu using gspread/googlesheets.
 
 [Back to contents](#contents)
 
@@ -139,5 +188,27 @@ Open your terminal (or Git Bash on Windows) and navigate to the directory where 
     - heroku/python
     - heroku/nodejs
 6. You must then create a Config Var called PORT. Set this to 8000.
+
+[Back to contents](#contents)
+
+## **Credits**
+
+### ***Content***
+  - [**Code Institute**](https://codeinstitute.net/)  - Python Module and Tutor Support.
+  - [**Code Institute Python Template**](https://github.com/Code-Institute-Org/python-essentials-template) - Template for Python mock terminal in Heroku.
+  - [**PEP8 ORG**](https://pep8.org/#maximum-line-length) - solution for the flags regarding the diagrams in the PEP8 Validator. 
+  - [**Real Python**](https://realpython.com/python-pep8/#maximum-line-length-and-line-breaking) - Also provide with clarity the solution.
+
+### ***Media***
+- [**Lucid**](https://lucid.co/) - Flowchart used on readme file.
+- [**Patorjk**](https://patorjk.com/software/taag/#p=display&f=Bloody&t=FATALITY) - provider with different fonts in diagrams terminal based.
+- [**ASCII Art**](https://www.asciiart.eu/miscellaneous/noose) - provided the noose ASCII art.
+
+## Acknowledgments
+
+This project was fun and challenging at the same time. A huge thank you to my mentor Narender for guidance and crucial inputs to the project.
+
+
+# THANK YOU!
 
 [Back to contents](#contents)

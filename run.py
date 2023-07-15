@@ -18,6 +18,7 @@ SCOPE = [
     "https://www.googleapis.com/auth/drive"
     ]
 
+# Constants
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
@@ -115,7 +116,7 @@ def show_rules():
     \n       # Guess one letter at a time to reveal the secret word.
     \n       # Each incorrect guess adds another part to the hangman.
     \n       # Chalange your knowledge by selecting the level of difficulty.
-    \n       # Be careful, you have only 6 incorrect guesses!
+    \n       # Be careful, you have only 7 incorrect guesses!
     ''')
     print('1. Return home 2. End game')
     x_x = input('')
@@ -330,7 +331,7 @@ def main():
                        (¯¯¯)
                        (¯¯¯)
                        /¯¯/\{Fore.WHITE}        The Hangman Game!{Fore.RESET}
-{Fore.YELLOW}                      / ,^./\
+ {Fore.YELLOW}                     / ,^./\
                      / /   \/\
                     / /     \/\      Test your knoledge,
                    ( (       )/)    but don't loose your head!
