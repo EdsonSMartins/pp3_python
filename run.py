@@ -1,6 +1,7 @@
 '''
 Module with all required imports to this project
 '''
+import sys
 import random
 import os
 import time
@@ -23,26 +24,28 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('hangman_words')
 WORDS = SHEET.worksheet('words')
 
+# Word selection
+BEGGINER_WORDS = WORDS.col_values(1)
+INTERMEDIATE_WORDS = WORDS.col_values(2)
+EXPERT_WORDS = WORDS.col_values(3)
 
 # To initialize colorama
 colorama.init(autoreset=True)
 
 
-def check_input(x_x):
+def check_input(u_inpt):
     """
     Function to validate user input and return a valid options
     and alpha validation
     """
-    if len(x_x) == 1:
+    if len(u_inpt) == 1:
         try:
-            int(x_x)
+            int(u_inpt)
             return 1
         except ValueError:
-            is_alpha = x_x.isalpha()
+            is_alpha = u_inpt.isalpha()
             if is_alpha is True:
                 return 2
-            else:
-                return 3
     else:
         return 3
 
@@ -87,7 +90,7 @@ def pre_game():
                 return 2
             if number == 3:
                 print('Exiting Game...')
-                exit()
+                sys.exit()
             else:
                 print('Please only enter 1, 2 or 3')
                 main()
@@ -122,7 +125,7 @@ def show_rules():
             os.system("clear")
             main()
         elif x_x == 2:
-            exit()
+            sys.exit()
         else:
             print('Please only enter 1 or 2')
             show_rules()
@@ -164,12 +167,12 @@ def select_level():
             time.sleep(1.2)
             os.system("clear")
             return 1
-        elif level == 2:
+        if level == 2:
             print(f'{Fore.YELLOW}Intermediate level loading...{Fore.RESET}')
             time.sleep(1.2)
             os.system("clear")
             return 2
-        elif level == 3:
+        if level == 3:
             print(f'{Fore.RED}Expert level loading...{Fore.RESET}')
             time.sleep(1.2)
             os.system("clear")
@@ -182,30 +185,23 @@ def select_level():
         select_level()
 
 
-# Word selection
-begginer_words = WORDS.col_values(1)
-intermediate_words = WORDS.col_values(2)
-expert_words = WORDS.col_values(3)
-
-
 def select_word(level):
     """
     Game's words are defined by taken the value of level selected
     """
     choice = random.randrange(30)
     if level == 1:
-        hidden_word = begginer_words[choice]
+        hidden_word = BEGGINER_WORDS[choice]
     elif level == 2:
-        hidden_word = intermediate_words[choice]
+        hidden_word = INTERMEDIATE_WORDS[choice]
     elif level == 3:
-        hidden_word = expert_words[choice]
+        hidden_word = EXPERT_WORDS[choice]
     return hidden_word
 
 
 def show_word(hidden_word):
     """
-    Get and display word by level, display hangman stages
-    and also display words already guessed
+    Get and display word by level
     """
     letters = []
     s_word = []
@@ -236,13 +232,13 @@ def hangman(letters, s_word):
             user_guess = user_guess.lower()
             if user_guess not in already_guessed:
                 already_guessed.append(user_guess)
-                # x value is used to iterate through blank list
-                x_x = 0
+                # u_inpt value is used to iterate through blank list
+                u_inpt = 0
                 for letter in letters:
                     if user_guess == letter:
-                        s_word[x_x] = user_guess
+                        s_word[u_inpt] = user_guess
                         correct_guess += 1
-                    x_x += 1
+                    u_inpt += 1
                 print(s_word)
                 print(f'{Fore.YELLOW}Letters you tried: {(already_guessed)}')
                 if correct_guess > 0:
@@ -311,7 +307,7 @@ def exit_program():
              Press 'y' to confirm or 'n' to play again: {Fore.RESET}")
     if confirm.lower() == "y":
         print("Exiting program...")
-        exit()
+        sys.exit()
     else:
         os.system("clear")
         main()
